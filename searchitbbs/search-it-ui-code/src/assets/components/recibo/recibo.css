@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    font-family: "Geist", sans-serif;
+    font-size: 15px;
+}
+.main-preview {
+    width: 100%;
+    margin: 20px;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+hr {
+    border: 1px dashed #d6d6d8;
+    width: 90%;
+}
+
+.container {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 60%;
+}
+
+.topo, .container-valor, .codigo {
+    text-align: center;
+}
+
+.topo, .valor, .infos, .codigo {
+    margin: 10px 15px;
+}
+
+.info-grupo {
+    margin: 20px 0;
+}
+
+.info-grupo p {
+    margin: 0;
+}
+
+.rua, .nome, .cep {
+    font-weight: bold;
+}
+
+.codigo img {
+    width: 160px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.preview-header p, .codigo p {
+    color: #525252;
+    font-size: 13px;
+}
+
+.container-button {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.container-button button {
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.container-button button:first-of-type {
+    border: 1px solid #1E40AF;
+    color: #1E40AF;   
+}
+
+.container-button button:last-of-type {
+    color: #475569;
+    border: 1px solid #475569;
+}
+
+span {
+    color: #475569;
+    font-size: 13px;
+}
+
+.valor {
+    font-size: 25px;
+    color: #000;
+    font-weight: bold;
+}
+
