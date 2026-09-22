@@ -1,4 +1,9 @@
-function EnderecoForm() {
+export default function EnderecoForm({ dados, setDados }) {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setDados((prev) => ({ ...prev, [name]: value }));
+  };
+
   return (
     <section className="form-section">
 
@@ -7,6 +12,9 @@ function EnderecoForm() {
           <label>Rua / Logradouro *</label>
           <input
             type="text"
+            name="rua"
+            value={dados.rua}
+            onChange={handleChange}
             placeholder="Avenida Paulista"
             readOnly
           />
@@ -16,8 +24,10 @@ function EnderecoForm() {
           <label>Número *</label>
           <input
             type="text"
+            name="numero"
+            value={dados.numero}
+            onChange={handleChange}
             placeholder="1106"
-            readOnly
           />
         </div>
       </div>
@@ -28,6 +38,9 @@ function EnderecoForm() {
           <label>Complemento</label>
           <input
             type="text"
+            name="complemento"
+            value={dados.complemento}
+            onChange={handleChange}
             placeholder="Bloco B - Apto 42"
           />
         </div>
@@ -36,6 +49,9 @@ function EnderecoForm() {
           <label>Bairro *</label>
           <input
             type="text"
+            name="bairro"
+            value={dados.bairro}
+            onChange={handleChange}
             placeholder="Bela Vista"
             readOnly
           />
@@ -49,6 +65,9 @@ function EnderecoForm() {
           <label>Cidade *</label>
           <input
             type="text"
+            name="cidade"
+            value={dados.cidade}
+            onChange={handleChange}
             placeholder="São Paulo"
             readOnly
           />
@@ -58,6 +77,9 @@ function EnderecoForm() {
           <label>Estado (UF) *</label>
           <input
             type="text"
+            name="estado"
+            value={dados.estado}
+            onChange={handleChange}
             placeholder="SP"
             readOnly
           />
@@ -69,6 +91,9 @@ function EnderecoForm() {
         <label>Ponto de Referência (Opcional)</label>
         <input
           type="text"
+          name="referencia"
+          value={dados.referencia}
+          onChange={handleChange}
           placeholder="Próximo ao MASP"
         />
       </div>
@@ -76,5 +101,3 @@ function EnderecoForm() {
     </section>
   );
 }
-
-export default EnderecoForm;
