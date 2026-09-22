@@ -1,0 +1,651 @@
+/* =========================
+   CSS DO CHAT, NÃO ME JULGUE!!! 
+========================= */
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fa;
+  color: #111827;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+
+/* =========================
+   APP
+========================= */
+
+.app {
+  min-height: 100vh;
+  background: #f5f7fa;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  width: 100%;
+  height: 70px;
+
+  padding: 0 40px;
+
+  background: #ffffff;
+  border-bottom: 1px solid #dce2ea;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #2447b8;
+  color: white;
+
+  border-radius: 7px;
+
+  font-size: 18px;
+}
+
+.logo-area h1 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #172033;
+}
+
+.logo-area p {
+  margin-top: 3px;
+
+  font-size: 12px;
+  color: #4b5b73;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 14px;
+
+  background: #dcfce9;
+  color: #16723b;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status span {
+  width: 8px;
+  height: 8px;
+
+  background: #159447;
+  border-radius: 50%;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.main-content {
+  width: calc(100% - 80px);
+  max-width: 1360px;
+
+  margin: 0 auto;
+
+  padding: 42px 0 24px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(360px, 1fr);
+  gap: 64px;
+}
+
+
+/* =========================
+   TITLES
+========================= */
+
+.title {
+  margin-bottom: 24px;
+}
+
+.title h2 {
+  font-size: 20px;
+  font-weight: 700;
+
+  color: #111827;
+
+  margin-bottom: 6px;
+}
+
+.title p {
+  font-size: 14px;
+  color: #4b5b73;
+}
+
+
+/* =========================
+   FORM CARD
+========================= */
+
+.form-card {
+  width: 100%;
+
+  background: #ffffff;
+
+  border: 1px solid #dce3eb;
+  border-radius: 15px;
+
+  padding: 32px;
+
+  box-shadow: 0 2px 7px rgba(20, 35, 60, 0.03);
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.form-row {
+  width: 100%;
+
+  display: flex;
+  gap: 20px;
+}
+
+.field {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  flex: 1;
+}
+
+.field.large {
+  flex: 2;
+}
+
+.field.small {
+  flex: 0.5;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #45566f;
+}
+
+.field label::first-letter {
+  color: inherit;
+}
+
+.field input {
+  width: 100%;
+  height: 42px;
+
+  padding: 0 12px;
+
+  background: #ffffff;
+
+  border: 1px solid #d6dee8;
+  border-radius: 7px;
+
+  color: #172033;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field input::placeholder {
+  color: #9aa5b5;
+}
+
+.field input:focus {
+  border-color: #087fd4;
+
+  box-shadow: 0 0 0 2px rgba(8, 127, 212, 0.08);
+}
+
+.field input[readonly] {
+  background: #eff8ff;
+  border-color: #008ce8;
+}
+
+
+/* =========================
+   CEP
+========================= */
+
+.cep-field {
+  flex: 2;
+}
+
+.cep-container {
+  display: flex;
+  gap: 9px;
+}
+
+.cep-container input {
+  flex: 1;
+
+  background: #eff8ff;
+  border-color: #008ce8;
+}
+
+.cep-container button {
+  height: 42px;
+
+  padding: 0 18px;
+
+  border: none;
+  border-radius: 7px;
+
+  background: #2548b8;
+  color: white;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+
+  transition: background 0.2s;
+}
+
+.cep-container button:hover {
+  background: #1c399a;
+}
+
+
+/* =========================
+   SUCCESS MESSAGE
+========================= */
+
+.success-message {
+  width: 100%;
+
+  padding: 11px 13px;
+
+  background: #eff9ff;
+
+  border: 1px solid #008ce8;
+  border-radius: 7px;
+
+  color: #0875b9;
+
+  font-size: 12px;
+}
+
+
+/* =========================
+   SEPARADOR
+========================= */
+
+.form-section + .form-section {
+  margin-top: 22px;
+
+  padding-top: 22px;
+
+  border-top: 1px solid #dce3eb;
+}
+
+
+/* =========================
+   RECEIPT PREVIEW
+========================= */
+
+.receipt-preview {
+  width: 100%;
+}
+
+.preview-header {
+  margin-bottom: 24px;
+}
+
+.preview-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+
+  color: #111827;
+
+  margin-bottom: 6px;
+}
+
+.preview-header p {
+  font-size: 14px;
+  color: #4b5b73;
+}
+
+
+/* =========================
+   RECEIPT
+========================= */
+
+.receipt {
+  width: 100%;
+
+  min-height: 648px;
+
+  padding: 32px;
+
+  background: #ffffff;
+
+  border: 1px solid #dce3eb;
+  border-radius: 15px;
+
+  box-shadow: 0 2px 7px rgba(20, 35, 60, 0.03);
+
+  text-align: center;
+}
+
+.receipt h3 {
+  font-size: 16px;
+  font-weight: 800;
+
+  color: #111827;
+
+  margin-bottom: 10px;
+}
+
+.receipt-number {
+  font-size: 12px;
+  color: #9aa8ba;
+
+  margin-bottom: 8px;
+}
+
+.receipt > p {
+  font-size: 12px;
+  color: #53627a;
+}
+
+
+/* =========================
+   RECEIPT VALUE
+========================= */
+
+.receipt-value {
+  width: 100%;
+
+  margin: 20px 0;
+
+  padding: 18px 10px;
+
+  background: #f0f5f9;
+
+  border-radius: 7px;
+}
+
+.receipt-value span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  color: #53627a;
+}
+
+.receipt-value strong {
+  display: block;
+
+  font-size: 32px;
+  font-weight: 800;
+
+  color: #111827;
+}
+
+
+/* =========================
+   RECEIPT INFO
+========================= */
+
+.receipt-info {
+  padding-top: 20px;
+
+  border-top: 1px dashed #d2dae4;
+
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.receipt-info span {
+  margin-top: 7px;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  color: #91a0b4;
+}
+
+.receipt-info strong {
+  font-size: 13px;
+  color: #182235;
+}
+
+.receipt-info span + strong {
+  margin-top: -1px;
+}
+
+
+/* =========================
+   RECEIPT CODE
+========================= */
+
+.receipt-code {
+  margin-top: 20px;
+  padding-top: 18px;
+
+  border-top: 1px dashed #d2dae4;
+
+  font-size: 25px;
+  letter-spacing: 2px;
+
+  color: #111827;
+}
+
+
+/* =========================
+   ACTIONS
+========================= */
+
+.actions {
+  width: calc(100% - 80px);
+  max-width: 1360px;
+
+  margin: 0 auto;
+
+  padding-bottom: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.actions > div {
+  display: flex;
+  gap: 12px;
+}
+
+.actions button {
+  height: 42px;
+
+  padding: 0 20px;
+
+  border-radius: 7px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+
+/* Limpar */
+
+.clear-button {
+  background: #ffffff;
+
+  border: 1px solid #ccd6e2;
+
+  color: #53627a;
+}
+
+.clear-button:hover {
+  background: #f5f7fa;
+}
+
+
+/* Gerar */
+
+.generate-button {
+  background: #2548b8;
+
+  border: 1px solid #2548b8;
+
+  color: white;
+}
+
+.generate-button:hover {
+  background: #1c399a;
+}
+
+
+/* Imprimir */
+
+.secondary-button {
+  min-width: 190px;
+
+  background: #ffffff;
+
+  border: 1px solid #2548b8;
+
+  color: #2548b8;
+}
+
+.secondary-button:hover {
+  background: #f1f5ff;
+}
+
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 1000px) {
+
+  .main-content {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+  .receipt-preview {
+    max-width: 600px;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .actions > div {
+    justify-content: flex-end;
+  }
+}
+
+
+@media (max-width: 700px) {
+
+  .header {
+    padding: 0 20px;
+  }
+
+  .status {
+    display: none;
+  }
+
+  .main-content {
+    width: calc(100% - 30px);
+
+    padding-top: 25px;
+  }
+
+  .form-card {
+    padding: 20px;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .field.large,
+  .field.small,
+  .cep-field {
+    flex: 1;
+  }
+
+  .cep-container {
+    flex-direction: column;
+  }
+
+  .cep-container button {
+    width: 100%;
+  }
+
+  .actions {
+    width: calc(100% - 30px);
+  }
+
+  .actions > div {
+    flex-direction: column;
+  }
+
+  .actions button {
+    width: 100%;
+  }
