@@ -1,62 +1,72 @@
-function Recibo() {
-  return (
-    <aside className="receipt-preview">
+import "./recibo.css";
+import CodigoBarras from "/src/assets/cod-barras.png";
 
-      <div className="preview-header">
-        <h2>Visualização do Recibo</h2>
+export default function Recibo({ dados }) {
+  
+    const anoAtual = new Date().getFullYear();
+    const numAleatorio = Math.floor(1000 + Math.random() * 9000);
+    const codRecibo = `REC-${anoAtual}-${numAleatorio}`;
 
-        <p>
-          Modelo pronto para impressão térmica ou salvamento em PDF.
-        </p>
-      </div>
+    const dataAgora = new Date();
+    const dataFormatada = dataAgora.toLocaleDateString('pt-BR');
+    const horaFormatada = dataAgora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+    const dataeHora = `${dataFormatada} às ${horaFormatada}`;
 
-      <div className="receipt">
+    return (
+        <main className="main-preview">
+            <header className="preview-header">
+                <h3>Visualização do Recibo</h3>
+                <p>Modelo pronto para impressão térmica ou salvamento em PDF.</p>
+            </header>
 
-        <h3>RECIBO DE ENTREGA</h3>
+            <section className="container">
+                <div className="topo">
+                    <h4>Recibo da entrega</h4>
+                    <p>{codRecibo}</p>
+                    <p>{dataeHora}</p>
+                </div>
 
-        <p className="receipt-number">
-          Nº REC-2026-8941
-        </p>
+                <hr />
 
-        <p>
-          22 de Outubro de 2026 às 14:32
-        </p>
+                <div className="container-valor">
+                    <p>Valor total do recibo: 
+                        <br/>
+                        <span className="valor">{dados.valor || "R$ 0,00"}</span>
+                    </p>
+                </div>
 
-        <div className="receipt-value">
-          <span>VALOR TOTAL DO RECIBO</span>
-          <strong>R$ 350,00</strong>
-        </div>
+                <hr />
 
-        <div className="receipt-info">
+                <div className="infos">
+                    <div className="info-grupo">
+                        <span>Destinatário / Cliente</span>
+                        <p className="nome">{dados.nome || "Nome do Cliente"}</p>
+                        <p className="documento">{dados.documento || "000.000.000-00"}</p>
+                    </div>
 
-          <span>DESTINATÁRIO / CLIENTE</span>
-          <strong>Mariana Souza Santos</strong>
+                    <div className="info-grupo">
+                        <span className="info-titulo">Endereço solicitado</span>
+                        <p className="rua">{dados.rua ? `${dados.rua}, ${dados.numero}` : "Rua Exemplo, 000"}</p>
+                        <p>{dados.complemento || "Complemento"}</p>
+                        <p>{dados.bairro ? `${dados.bairro} - ${dados.cidade}` : "Bairro - Cidade / UF"}</p>
+                    </div>
 
-          <span>CPF: 123.456.789-00</span>
+                    <div className="info-grupo">
+                        <span className="info-titulo">CEP consultado</span>
+                        <p className="cep">{dados.cep || "00000-000"}</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section className="codigo">
+                <img src={CodigoBarras} alt="codigo de barras"/>
+                <p>{codRecibo}</p>
+            </section>
 
-          <span>ENDEREÇO SOLICITADO</span>
-          <strong>Avenida Paulista, 1106</strong>
-
-          <span>Bloco B - Apto 42</span>
-
-          <span>Bela Vista — São Paulo / SP</span>
-
-          <span>CEP CONSULTADO</span>
-          <strong>01311-200</strong>
-
-          <span>PONTO DE REFERÊNCIA</span>
-          <span>Próximo ao MASP</span>
-
-        </div>
-
-        <div className="receipt-code">
-          ||| || |||| ||| |||| |
-        </div>
-
-      </div>
-
-    </aside>
-  );
+            <section className="container-button">
+                <button>Imprimir Recibo</button>
+                <button>Salvar PDF</button>
+            </section>
+        </main>
+    );
 }
-
-export default Recibo;
