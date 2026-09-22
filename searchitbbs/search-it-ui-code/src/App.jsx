@@ -8,6 +8,7 @@ import Recibo from "../src/assets/components/recibo/recibo";
 import PopUp from "../src/assets/components/popUp/popUp";
 
 function App() {
+
   const [dadoInput, setDadoInput] = useState({
     nome: "",
     documento: "",
@@ -17,9 +18,12 @@ function App() {
     numero: "",
     complemento: "",
     bairro: "",
-    cidade: ""
+    cidade: "",
+    estado: "",           
+    pontoReferencia: ""   
   });
 
+  
   const [dadosRecibo, setDadosRecibo] = useState({
     nome: "",
     documento: "",
@@ -29,7 +33,9 @@ function App() {
     numero: "",
     complemento: "",
     bairro: "",
-    cidade: ""
+    cidade: "",
+    estado: "",
+    pontoReferencia: ""
   });
 
   const [mostrarPopup, setMostrarPopup] = useState(false);
