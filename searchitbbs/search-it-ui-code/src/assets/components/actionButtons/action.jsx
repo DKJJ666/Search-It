@@ -21,5 +21,5 @@ export default function ActionButtons({ onGerarRecibo, onPdfSaved }) {
       </div>
 
     </div>
-  );
+  )
 }
