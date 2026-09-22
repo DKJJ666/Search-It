@@ -1,10 +1,10 @@
-import React from "react";
+import React from "react"
 
 export default function ClienteForm({ dados, setDados }) {
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setDados((prev) => ({ ...prev, [name]: value }));
-  };
+    const { name, value } = e.target
+    setDados((prev) => ({ ...prev, [name]: value }))
+  }
 
   return (
     <section className="form-section">
@@ -84,5 +84,5 @@ export default function ClienteForm({ dados, setDados }) {
         </div>
       </div>
     </section>
-  );
+  )
 }
