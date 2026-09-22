@@ -1,11 +1,11 @@
-import { useState } from "react";
-import Header from "../src/assets/components/header/header";
-import ClienteForm from "../src/assets/components/clienteForm/cliente";
-import EnderecoForm from "../src/assets/components/enderecoForm/endereco";
-import ActionButtons from "../src/assets/components/actionButtons/action";
-import "./App.css";
-import Recibo from "../src/assets/components/recibo/recibo";
-import PopUp from "../src/assets/components/popUp/popUp";
+import { useState } from "react"
+import Header from "../src/assets/components/header/header"
+import ClienteForm from "../src/assets/components/clienteForm/cliente"
+import EnderecoForm from "../src/assets/components/enderecoForm/endereco"
+import ActionButtons from "../src/assets/components/actionButtons/action"
+import "./App.css"
+import Recibo from "../src/assets/components/recibo/recibo"
+import PopUp from "../src/assets/components/popUp/popUp"
 
 function App() {
 
@@ -21,7 +21,7 @@ function App() {
     cidade: "",
     estado: "",           
     pontoReferencia: ""   
-  });
+  })
 
   
   const [dadosRecibo, setDadosRecibo] = useState({
@@ -36,12 +36,12 @@ function App() {
     cidade: "",
     estado: "",
     pontoReferencia: ""
-  });
+  })
 
   const [mostrarPopup, setMostrarPopup] = useState(false);
 
   const handleGerarRecibo = () => {
-    setDadosRecibo(dadoInput);
+    setDadosRecibo(dadoInput)
   };
 
   return (
@@ -77,7 +77,7 @@ function App() {
         />
       )}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
