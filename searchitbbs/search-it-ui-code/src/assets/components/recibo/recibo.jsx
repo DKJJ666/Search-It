@@ -1,16 +1,16 @@
 import "./recibo.css";
-import CodigoBarras from "/src/assets/cod-barras.png";
+import CodigoBarras from "/src/assets/cod-barras.png"
 
 export default function Recibo({ dados }) {
   
-    const anoAtual = new Date().getFullYear();
-    const numAleatorio = Math.floor(1000 + Math.random() * 9000);
-    const codRecibo = `REC-${anoAtual}-${numAleatorio}`;
+    const anoAtual = new Date().getFullYear()
+    const numAleatorio = Math.floor(1000 + Math.random() * 9000)
+    const codRecibo = `REC-${anoAtual}-${numAleatorio}`
 
     const dataAgora = new Date();
-    const dataFormatada = dataAgora.toLocaleDateString('pt-BR');
-    const horaFormatada = dataAgora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-    const dataeHora = `${dataFormatada} às ${horaFormatada}`;
+    const dataFormatada = dataAgora.toLocaleDateString('pt-BR')
+    const horaFormatada = dataAgora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })
+    const dataeHora = `${dataFormatada} às ${horaFormatada}`
 
     return (
         <main className="main-preview">
@@ -68,5 +68,5 @@ export default function Recibo({ dados }) {
                 <button>Salvar PDF</button>
             </section>
         </main>
-    );
+    )
 }
