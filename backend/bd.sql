@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS recibos (
     bairro VARCHAR(100) NOT NULL,            
     cidade VARCHAR(100) NOT NULL,            
     estado VARCHAR(2) NOT NULL,               
-    ponto_referencia VARCHAR(255)            
+    ponto_referencia VARCHAR(255)
 );
 
-DROP DATABASE searchit;
+DROP DATABASE IF EXISTS searchit

@@ -91,8 +91,8 @@ export default function EnderecoForm({ dados, setDados }) {
         <label>Ponto de Referência (Opcional)</label>
         <input
           type="text"
-          name="referencia"
-          value={dados.referencia}
+        name="pontoReferencia"
+        value={dados.pontoReferencia}
           onChange={handleChange}
           placeholder="Próximo ao MASP"
         />

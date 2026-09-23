@@ -1,11 +1,24 @@
-import React from "react"
 import { searchCEP } from '../../../services/searchCEP/searchCEP.js'
+
+const formatarMoeda = (valor) => {
+  const apenasNumeros = valor.replace(/\D/g, '')
+
+  if (!apenasNumeros) {
+    return ''
+  }
+
+  return (Number(apenasNumeros) / 100).toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  })
+}
 
 
 export default function ClienteForm({ dados, setDados }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setDados((prev) => ({ ...prev, [name]: value }));
+    const valorAtualizado = name === 'valor' ? formatarMoeda(value) : value;
+    setDados((prev) => ({ ...prev, [name]: valorAtualizado }));
 
   }
 

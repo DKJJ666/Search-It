@@ -1,17 +1,7 @@
 import app from './src/app.js' // Importa a aplicação já configurada
 
-import cors from 'cors';
-
 import dotenv from 'dotenv';
 dotenv.config();
-
-
-app.use(
-    cors({
-        origin: 'http://localhost:5173'
-    })
-)
-
 
 // Heath check
 app.get('/', (req, res) => {

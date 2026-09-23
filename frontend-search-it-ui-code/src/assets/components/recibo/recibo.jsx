@@ -1,19 +1,25 @@
+import { forwardRef, useState } from "react";
 import "./recibo.css";
 import CodigoBarras from "/src/assets/cod-barras.png"
 
-export default function Recibo({ dados }) {
-  
-    const anoAtual = new Date().getFullYear()
-    const numAleatorio = Math.floor(1000 + Math.random() * 9000)
-    const codRecibo = `REC-${anoAtual}-${numAleatorio}`
+function Recibo({ dados, onImprimir, onSalvarPdf }, ref) {
+    const [dadosGeracao] = useState(() => {
+        const dataAgora = new Date();
+        const anoAtual = dataAgora.getFullYear();
+        const numAleatorio = Math.floor(1000 + Math.random() * 9000);
+        const dataFormatada = dataAgora.toLocaleDateString('pt-BR');
+        const horaFormatada = dataAgora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
 
-    const dataAgora = new Date();
-    const dataFormatada = dataAgora.toLocaleDateString('pt-BR')
-    const horaFormatada = dataAgora.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })
-    const dataeHora = `${dataFormatada} às ${horaFormatada}`
+        return {
+            codRecibo: `REC-${anoAtual}-${numAleatorio}`,
+            dataeHora: `${dataFormatada} às ${horaFormatada}`,
+        };
+    });
+
+    const { codRecibo, dataeHora } = dadosGeracao;
 
     return (
-        <main className="main-preview">
+        <main ref={ref} className="main-preview">
             <header className="preview-header">
                 <h3>Visualização do Recibo</h3>
                 <p>Modelo pronto para impressão térmica ou salvamento em PDF.</p>
@@ -64,9 +70,11 @@ export default function Recibo({ dados }) {
             </section>
 
             <section className="container-button">
-                <button>Imprimir Recibo</button>
-                <button>Salvar PDF</button>
+                <button type="button" onClick={onImprimir}>Imprimir Recibo</button>
+                <button type="button" onClick={onSalvarPdf}>Salvar PDF</button>
             </section>
         </main>
     )
 }
+
+export default forwardRef(Recibo);
