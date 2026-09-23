@@ -1,9 +1,32 @@
 import React from "react"
+import { searchCEP } from '../../../services/searchCEP/searchCEP.js'
+
 
 export default function ClienteForm({ dados, setDados }) {
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setDados((prev) => ({ ...prev, [name]: value }))
+    const { name, value } = e.target;
+    setDados((prev) => ({ ...prev, [name]: value }));
+
+  }
+
+  const handleSearchCEP = async () => {
+
+    const data = await searchCEP(dados.cep);
+
+    if (!data) {
+      return;
+
+    }
+
+    setDados((prev) => ({
+      ...prev,
+      rua: data.logradouro,
+      bairro: data.bairro,
+      cidade: data.estado,
+      uf: data.uf,
+
+    }))
+
   }
 
   return (
@@ -54,7 +77,7 @@ export default function ClienteForm({ dados, setDados }) {
               onChange={handleChange}
               placeholder="01311-200"
             />
-            <button type="button"><i className="bi bi-search"></i></button>
+            <button type="button" onClick={() => handleSearchCEP(dados.cep)}><i className="bi bi-search"></i></button>
           </div>
         </div>
       </div>
@@ -79,8 +102,13 @@ export default function ClienteForm({ dados, setDados }) {
           <input type="text" name="bairro" value={dados.bairro} onChange={handleChange} placeholder="Centro" />
         </div>
         <div className="field">
-          <label>Cidade / UF</label>
+          <label>Cidade</label>
           <input type="text" name="cidade" value={dados.cidade} onChange={handleChange} placeholder="São Paulo / SP" />
+        </div>
+        <div className="field">
+          <label htmlFor=""> Unidade Federal (UF)</label>
+          <input type="text" id="" name="uf" value={dados.uf} placeholder="SP" />
+
         </div>
       </div>
     </section>

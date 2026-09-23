@@ -74,11 +74,11 @@ export default function EnderecoForm({ dados, setDados }) {
         </div>
 
         <div className="field small">
-          <label>Estado (UF) *</label>
+          <label>Unidade Federal (UF) *</label>
           <input
             type="text"
             name="estado"
-            value={dados.estado}
+            value={dados.uf}
             onChange={handleChange}
             placeholder="SP"
             readOnly
