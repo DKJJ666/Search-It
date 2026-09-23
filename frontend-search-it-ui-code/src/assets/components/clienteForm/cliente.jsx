@@ -96,7 +96,7 @@ export default function ClienteForm({ dados, setDados }) {
       </div>
       <div className="form-row">
         <div className="field large">
-          <label>Rua</label>
+          <label>Rua / Logradouro</label>
           <input type="text" name="rua" value={dados.rua} onChange={handleChange} placeholder="Rua das Flores" />
         </div>
         <div className="field">
@@ -123,6 +123,17 @@ export default function ClienteForm({ dados, setDados }) {
           <input type="text" id="" name="uf" value={dados.uf} placeholder="SP" />
 
         </div>
+
+      </div>
+      <div className="field">
+        <label>Ponto de Referência (Opcional)</label>
+        <input
+          type="text"
+          name="pontoReferencia"
+          value={dados.pontoReferencia}
+          onChange={handleChange}
+          placeholder="Próximo ao MASP"
+        />
       </div>
     </section>
   )
