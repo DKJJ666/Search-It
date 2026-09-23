@@ -1,8 +1,8 @@
-export default function ActionButtons({ onGerarRecibo, onImprimirRecibo, onSalvarPdf, salvandoRecibo }) {
+export default function ActionButtons({ onGerarRecibo, onLimparCampos, salvandoRecibo }) {
   return (
     <div className="actions">
 
-      <button className="clear-button" type="button">
+      <button className="clear-button" type="button" onClick={onLimparCampos}>
         <i className="bi bi-trash"></i>Limpar Campos
       </button>
 

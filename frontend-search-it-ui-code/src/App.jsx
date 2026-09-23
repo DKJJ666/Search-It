@@ -3,7 +3,6 @@ import html2canvas from "html2canvas"
 import { jsPDF } from "jspdf"
 import Header from "../src/assets/components/header/header"
 import ClienteForm from "../src/assets/components/clienteForm/cliente"
-import EnderecoForm from "../src/assets/components/enderecoForm/endereco"
 import ActionButtons from "../src/assets/components/actionButtons/action"
 import "./App.css"
 import Recibo from "../src/assets/components/recibo/recibo"
@@ -51,7 +50,6 @@ function App() {
 
   const handleGerarRecibo = async () => {
     setErroRecibo("");
-    setSalvandoRecibo(true);
 
     const valorNumerico = Number(
       String(dadoInput.valor || "")
@@ -59,6 +57,24 @@ function App() {
         .replace(/\./g, "")
         .replace(",", ".")
     );
+
+    const camposObrigatorios = [
+      ["nome", dadoInput.nome], ["documento", dadoInput.documento],
+      ["valor", dadoInput.valor], ["CEP", dadoInput.cep],
+      ["rua", dadoInput.rua], ["número", dadoInput.numero],
+      ["bairro", dadoInput.bairro], ["cidade", dadoInput.cidade],
+      ["UF", dadoInput.uf || dadoInput.estado],
+    ];
+    const camposVazios = camposObrigatorios
+      .filter(([, valor]) => !String(valor || "").trim())
+      .map(([nome]) => nome);
+
+    if (camposVazios.length > 0 || !Number.isFinite(valorNumerico) || valorNumerico <= 0) {
+      setErroRecibo(`Preencha todos os campos obrigatórios antes de gerar o recibo. Verifique: ${camposVazios.join(", ") || "valor"}.`);
+      return;
+    }
+
+    setSalvandoRecibo(true);
 
     const reciboParaSalvar = {
       nome_cliente: dadoInput.nome.trim(),
@@ -91,6 +107,18 @@ function App() {
   const handleImprimirRecibo = () => {
     if (!mostrarRecibo) return;
     window.print();
+  };
+
+  const handleLimparCampos = () => {
+    const camposVazios = {
+      nome: "", documento: "", valor: "", cep: "", rua: "", numero: "",
+      complemento: "", bairro: "", cidade: "", estado: "", uf: "", pontoReferencia: "",
+    };
+
+    setDadoInput(camposVazios);
+    setDadosRecibo(camposVazios);
+    setErroRecibo("");
+    setMostrarRecibo(false);
   };
 
   const handleSalvarPdf = async () => {
@@ -150,8 +178,7 @@ function App() {
       
       <ActionButtons
         onGerarRecibo={handleGerarRecibo}
-        onImprimirRecibo={handleImprimirRecibo}
-        onSalvarPdf={handleSalvarPdf}
+        onLimparCampos={handleLimparCampos}
         salvandoRecibo={salvandoRecibo}
       />
 

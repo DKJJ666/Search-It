@@ -11,9 +11,13 @@ body {
     width: 100%;
     margin: 20px;
     height: 90%;
+    padding: 40px;
+    padding-bottom: 50px;
+    background: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 25px;
 }
 
 hr {
@@ -25,6 +29,7 @@ hr {
     border: 1px solid #ccc;
     border-radius: 10px;
     width: 60%;
+    background: #ffffff;
 }
 
 .topo, .container-valor, .codigo {
