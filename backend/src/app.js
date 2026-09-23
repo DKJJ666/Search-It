@@ -5,7 +5,7 @@ import reciboRoutes from './routes/reciboRoutes.js'
 const app = express();
 
 
-app.use(cors());
+
 app.use(express.json());
 
 

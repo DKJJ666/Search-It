@@ -7,6 +7,8 @@ import "./App.css"
 import Recibo from "../src/assets/components/recibo/recibo"
 import PopUp from "../src/assets/components/popUp/popUp"
 
+import { searchCEP } from './services/searchCEP/searchCEP.js'
+
 function App() {
 
   const [dadoInput, setDadoInput] = useState({
@@ -19,8 +21,9 @@ function App() {
     complemento: "",
     bairro: "",
     cidade: "",
-    estado: "",           
-    pontoReferencia: ""   
+    estado: "",
+    uf: "",           
+    pontoReferencia: "",
   })
 
   
@@ -35,7 +38,8 @@ function App() {
     bairro: "",
     cidade: "",
     estado: "",
-    pontoReferencia: ""
+    uf: "",
+    pontoReferencia: "",
   })
 
   const [mostrarPopup, setMostrarPopup] = useState(false);
@@ -45,6 +49,7 @@ function App() {
   };
 
   return (
+
     <div className="app">
       <Header />
 
@@ -76,6 +81,7 @@ function App() {
           onClose={() => setMostrarPopup(false)}
         />
       )}
+
     </div>
   )
 }

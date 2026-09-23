@@ -47,8 +47,8 @@ export default function Recibo({ dados }) {
                     <div className="info-grupo">
                         <span className="info-titulo">Endereço solicitado</span>
                         <p className="rua">{dados.rua ? `${dados.rua}, ${dados.numero}` : "Rua Exemplo, 000"}</p>
-                        <p>{dados.complemento || "Complemento"}</p>
-                        <p>{dados.bairro ? `${dados.bairro} - ${dados.cidade}` : "Bairro - Cidade / UF"}</p>
+                        <p>{dados.complemento || null}</p>
+                        <p>{dados.bairro ? `${dados.bairro} - ${dados.cidade} / ${dados.uf}` : "Bairro - Cidade / UF"}</p>
                     </div>
 
                     <div className="info-grupo">

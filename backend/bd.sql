@@ -1,4 +1,6 @@
-CREATE DATABASE IF NOT EXISTS searchit;
+CREATE DATABASE IF NOT EXISTS searchit
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_unicode_ci;
 USE searchit;
 
 CREATE TABLE IF NOT EXISTS recibos (
