@@ -11,13 +11,13 @@ export default function ActionButtons({ onGerarRecibo, onImprimirRecibo, onSalva
           <i className="bi bi-lock"></i> {salvandoRecibo ? "Salvando..." : "Gerar Recibo"}
         </button>
 
-        <button className="secondary-button" type="button" onClick={onImprimirRecibo}>
+        {/* <button className="secondary-button" type="button" onClick={onImprimirRecibo}>
           <i className="bi bi-printer"></i> Imprimir Recibo
-        </button>
+        </button> */}
 
-        <button className="secondary-button" type="button" onClick={onSalvarPdf}>
+        {/* <button className="secondary-button" type="button" onClick={onSalvarPdf}>
           ◉ Salvar PDF
-        </button>
+        </button> */}
       </div>
 
     </div>

@@ -134,7 +134,6 @@ function App() {
 
           <div className="form-card">
             <ClienteForm dados={dadoInput} setDados={setDadoInput} />
-            <EnderecoForm dados={dadoInput} setDados={setDadoInput} />
             {erroRecibo && <p className="error-message">{erroRecibo}</p>}
           </div>
         </div>
