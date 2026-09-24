@@ -5,7 +5,9 @@ export async function searchCEP(cep) {
     if(!/^\d{8}$/.test(cep)){ //p
         const message = `This is not a valid CEP`;
         console.log(message);
-        return message;
+    
+        return window.alert(message);
+
     
     }
 
@@ -20,11 +22,12 @@ export async function searchCEP(cep) {
 
         console.error({
             message: `Error searching CEP: ${error}`
+        
+        
         })
 
-        return null;
+        window.alert(`Error searching CEP: ${error}`)
         
-
     }
 
 
